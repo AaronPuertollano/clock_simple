@@ -24,6 +24,7 @@ nav > ul {
   padding: 15px;
   margin: 0;
   background-color: var(--string-white-color);
+  justify-content: center;
 }
 
 nav > ul > li {
@@ -32,14 +33,13 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
-  color: var(--string-white-color);
+  color: #343434;
   text-decoration: none;
   padding: 10px 20px;
   transition: background-color 0.3s, color 0.3s;
-  color: #343434;
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
   justify-content: center;
 }
 
@@ -54,7 +54,7 @@ nav > ul > li > a:focus {
 }
 
 .material-icons {
-  font-size: 1.2em; /* Ajusta el tamaño del icono */
+  font-size: 1.5em;
   vertical-align: middle;
 }
 
@@ -70,21 +70,18 @@ main > section:not(:target) {
 }
 
 time {
-  font-size: clamp(3rem, 10vw, 8rem); /* Ajuste dinámico según pantalla */
+  font-size: clamp(2rem, 8vw, 6rem);
   text-shadow: 0 0 10px var(--gold-color), 0 0 20px var(--gold-color);
 }
 
-
-button{
+button, input {
   background-color: var(--string-white-color);
   color: var(--black-color);
   border: none;
   padding: 10px 20px;
   font-size: 1.5em;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  margin-bottom: 5px;
   border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
@@ -92,35 +89,111 @@ button:hover {
   color: var(--black-color);
 }
 
-input{
-  background-color: var(--string-white-color);
-  color: var(--black-color);
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  margin-bottom: 25px;
-  margin-top: 5px;
+input {
+  margin: 5px 0 25px;
 }
 
-@media (max-width: 768px) {
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
   time {
-    font-size: 4em;
+    font-size: clamp(2rem, 6vw, 4rem);
   }
 
   nav > ul {
     flex-direction: column;
+    padding: 10px 0;
   }
 
   nav > ul > li {
-    margin: 5px 0;
+    width: 100%;
+  }
+
+  nav > ul > li > a {
+    flex-direction: row;
+    font-size: 1rem;
+    width: 90%;
+    margin: 5px auto;
+    border-radius: 10px;
+  }
+
+  .material-icons {
+    font-size: 1.2rem;
+  }
+
+  button, input {
+    font-size: 1rem;
+    padding: 8px;
+    width: 90%;
   }
 }
+
+@media (max-width: 768px) {
+  time {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+  }
+
+  nav > ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  nav > ul > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav > ul > li > a {
+    flex-direction: row;
+    font-size: 1.2rem;
+    width: 80%;
+    margin: 5px auto;
+    border-radius: 10px;
+  }
+
+  .material-icons {
+    font-size: 1.5rem;
+  }
+
+  button, input {
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  time {
+    font-size: clamp(3rem, 9vw, 6rem);
+  }
+
+  nav > ul {
+    justify-content: space-around;
+  }
+
+  nav > ul > li > a {
+    font-size: 1.5rem;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .material-icons {
+    font-size: 2rem;
+  }
+
+  button, input {
+    font-size: 1.5rem;
+    padding: 12px;
+    max-width: 350px;
+  }
+}
+
 
 @media (prefers-color-scheme: light) {
   body {
     background-color: var(--white-color);
     color: var(--black-color);
-    color-scheme: light dark;
   }
 
   nav > ul {
@@ -139,58 +212,28 @@ input{
     outline: 2px solid var(--blue-color);
   }
 
-  button{
+  button {
     background-color: var(--string-white-color);
     color: var(--black-color);
   }
 
   button:hover {
     background-color: var(--blue-color);
-    color: var(--black-color);
   }
 
-  input{
+  input {
     background-color: var(--black-color);
     color: var(--white-color);
   }
 
   time {
-    font-size: 8em;
-    text-shadow: 0 0 10px rgba(0, 0, 139, 0), 0 0 20px rgba(178, 34, 34, 0);
-    color: var(--blue-color)
+    color: var(--blue-color);
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-shadow: 0 0 10px rgba(0, 139, 139, 0), 0 0 20px rgba(0, 139, 139, 0);
   }
 
-  input{
+  input {
     background-color: var(--string-white-color);
     color: var(--black-color);
   }
 }
-
-@media (max-width: 768px) {
-  nav > ul {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-  }
-
-  nav > ul > li {
-    width: 100%; /* Asegura que ocupe toda la pantalla */
-    text-align: center;
-  }
-
-  nav > ul > li > a {
-    flex-direction: row; /* Íconos a la izquierda del texto */
-    font-size: 1.2rem;
-    padding: 10px;
-    justify-content: flex-start;
-    width: 80%;
-    margin: 5px auto; /* Espacio entre opciones */
-    border-radius: 10px;
-  }
-
-  .material-icons {
-    font-size: 1.8rem;
-  }
-}
-
-
