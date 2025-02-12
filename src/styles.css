@@ -1,0 +1,196 @@
+:root {
+  --white-color: #FCFAF1;
+  --black-color: #343434;
+  --string-white-color: #b1afaf;
+  --gold-color: #E6B31E;
+  --blue-color: #1e8ce6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  color-scheme: dark;
+}
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  background-color: var(--string-white-color);
+}
+
+nav > ul > li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+nav > ul > li > a {
+  color: var(--string-white-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  color: #343434;
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  justify-content: center;
+}
+
+nav > ul > li > a:hover {
+  background-color: var(--gold-color);
+  color: var(--black-color);
+  border-radius: 5px;
+}
+
+nav > ul > li > a:focus {
+  outline: 2px solid var(--gold-color);
+}
+
+.material-icons {
+  font-size: 1.2em; /* Ajusta el tamaño del icono */
+  vertical-align: middle;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+main > section:not(:target) {
+  display: none;
+}
+
+time {
+  font-size: clamp(3rem, 10vw, 8rem); /* Ajuste dinámico según pantalla */
+  text-shadow: 0 0 10px var(--gold-color), 0 0 20px var(--gold-color);
+}
+
+
+button{
+  background-color: var(--string-white-color);
+  color: var(--black-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: var(--gold-color);
+  color: var(--black-color);
+}
+
+input{
+  background-color: var(--string-white-color);
+  color: var(--black-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  time {
+    font-size: 4em;
+  }
+
+  nav > ul {
+    flex-direction: column;
+  }
+
+  nav > ul > li {
+    margin: 5px 0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    color-scheme: light dark;
+  }
+
+  nav > ul {
+    background-color: var(--string-white-color);
+  }
+
+  nav > ul > li > a {
+    color: var(--black-color);
+  }
+
+  nav > ul > li > a:hover {
+    background-color: var(--blue-color);
+  }
+
+  nav > ul > li > a:focus {
+    outline: 2px solid var(--blue-color);
+  }
+
+  button{
+    background-color: var(--string-white-color);
+    color: var(--black-color);
+  }
+
+  button:hover {
+    background-color: var(--blue-color);
+    color: var(--black-color);
+  }
+
+  input{
+    background-color: var(--black-color);
+    color: var(--white-color);
+  }
+
+  time {
+    font-size: 8em;
+    text-shadow: 0 0 10px rgba(0, 0, 139, 0), 0 0 20px rgba(178, 34, 34, 0);
+    color: var(--blue-color)
+  }
+
+  input{
+    background-color: var(--string-white-color);
+    color: var(--black-color);
+  }
+}
+
+@media (max-width: 768px) {
+  nav > ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  nav > ul > li {
+    width: 100%; /* Asegura que ocupe toda la pantalla */
+    text-align: center;
+  }
+
+  nav > ul > li > a {
+    flex-direction: row; /* Íconos a la izquierda del texto */
+    font-size: 1.2rem;
+    padding: 10px;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 5px auto; /* Espacio entre opciones */
+    border-radius: 10px;
+  }
+
+  .material-icons {
+    font-size: 1.8rem;
+  }
+}
+
+
