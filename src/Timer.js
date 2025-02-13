@@ -33,6 +33,7 @@ export default class Timer extends HTMLElement {
         inputs.forEach((input) => {
           input.classList.remove("current-interval");
         });
+        this.dispatchEvent(new CustomEvent("stop", { bubbles: true }));
       }
 
       time.dateTime = `PT${ms / 1000}S`;

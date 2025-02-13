@@ -54,7 +54,6 @@ nav > ul > li > a:focus {
 }
 
 .material-icons {
-  font-size: 1.5em;
   vertical-align: middle;
 }
 
@@ -74,14 +73,21 @@ time {
   text-shadow: 0 0 10px var(--gold-color), 0 0 20px var(--gold-color);
 }
 
+button{
+  width: 100px;
+  height: 90px;
+}
+
 button, input {
   background-color: var(--string-white-color);
   color: var(--black-color);
   border: none;
   padding: 10px 20px;
-  font-size: 1.5em;
+  font-size: 1.0em;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -91,6 +97,9 @@ button:hover {
 
 input {
   margin: 5px 0 25px;
+  margin-top: 20px;
+  width: 250px;
+  height: 55px;
 }
 
 /* RESPONSIVE */

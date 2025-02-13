@@ -6,7 +6,6 @@ export default class Alarm extends HTMLElement {
     super();
     this.addEventListener("click", this);
     this.duration = 60 * 1000;
-    this.alarmSound = new Audio('media/alarm.mp3'); // Ruta
     this.#intervalCallback = () => {
       this.alarms.forEach((alarm) => {
         const { value } = alarm.querySelector("input");
@@ -17,8 +16,10 @@ export default class Alarm extends HTMLElement {
           const delta = Date.now() - date;
           if (delta > 0 && delta < new Date(this.duration)) {
             alarm.setAttribute("ringing", "");
-            console.log("Ringing");
-            this.alarmSound.play(); //Reproduce
+            console.log("ringing", alarm);
+            this.dispatchEvent(
+              new CustomEvent("ring", { bubbles: true, detail: alarm })
+            );
             return;
           }
         }
