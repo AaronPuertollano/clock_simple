@@ -14,13 +14,15 @@ export default class Alarm extends HTMLElement {
           new Date(`${new Date().toLocaleDateString()} ${value}`).getTime();
         if (date) {
           const delta = Date.now() - date;
+          console.log("Time delta:", delta);
           if (delta > 0 && delta < new Date(this.duration)) {
             alarm.setAttribute("ringing", "");
             console.log("ringing", alarm);
             this.dispatchEvent(
               new CustomEvent("ring", { bubbles: true, detail: alarm })
             );
-            return;
+            const musicplayer = document.getElementById('musicplayer');
+            musicplayer.volume = 0.9;
           }
         }
 

@@ -76,11 +76,14 @@
       </section>
     </main>
     <script type="module" src="./src/app.js"></script>
+
+    <audio id="musicplayer" autoplay>
+      <source src="./media/alarm.mp3" />
+    </audio>
+
     <script>
-      document.querySelector("x-alarm").addEventListener("stop", ({ target }) => {
-        target.alarms.forEach((alarm) => alarm.setAttribute("paused", ""));
-      });
-      <audio src="./media/alarm.mp3"></audio>
+      const musicplayer = document.getElementById('musicplayer');
+      musicplayer.volume = 0.9;
     </script>
   </body>
 </html>
