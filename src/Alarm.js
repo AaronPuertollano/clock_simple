@@ -79,9 +79,6 @@ export default class Alarm extends HTMLElement {
     } else if (classList.contains("start")) {
       this.start(this.alarms.find((alarm) => alarm.contains(target)));
       //el backgound color del boton start cambia a azul
-      this.#alarmSound.currentTime = 0;
-      this.#alarmSound.play().catch((err) => console.warn("Error al reproducir el audio:", err));
-      this.#alarmSound.volume = 0.9;
     }
   }
 
