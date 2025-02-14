@@ -108,6 +108,12 @@ input {
   height: 55px;
 }
 
+.laps {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 480px) {
@@ -146,6 +152,10 @@ input {
     width: 40px;
     height: 40px;
   }
+
+  button > p{
+    font-size: small;
+  }
 }
 
 @media (max-width: 768px) {
@@ -162,6 +172,10 @@ input {
   nav > ul > li {
     width: 100%;
     text-align: center;
+  }
+
+  button > p{
+    font-size: small;
   }
 
   nav > ul > li > a {
