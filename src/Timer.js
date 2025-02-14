@@ -1,10 +1,12 @@
 export default class Timer extends HTMLElement {
   #intervalCallback;
   #intervalId = 0;
+  #alarmSound;
 
   constructor() {
     super();
     this.addEventListener("click", this);
+    this.#alarmSound = new Audio('media/attention.mp3');
     this.#intervalCallback = () => {
       const time = this.querySelector("time");
       const inputs = this.querySelectorAll("input");
@@ -34,6 +36,10 @@ export default class Timer extends HTMLElement {
           input.classList.remove("current-interval");
         });
         this.dispatchEvent(new CustomEvent("stop", { bubbles: true }));
+      
+        this.#alarmSound.currentTime = 0;
+        this.#alarmSound.play().catch((err) => console.warn("Error al reproducir el audio:", err));
+        this.#alarmSound.volume = 0.9; 
       }
 
       time.dateTime = `PT${ms / 1000}S`;

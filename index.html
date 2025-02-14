@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time</title>
     <link rel="stylesheet" href="./src/styles.css" />
     <link rel="icon" type="image/x-icon" href="./media/clock.png">
@@ -34,15 +34,15 @@
             <section class="alarms">
               <input type="time" min="00:00" max="23:59" step="1" />
               <section class="controls">
-                <button class="start material-icons">alarm_on</button>
-                <button class="pause material-icons">alarm_off</button>
+                <button class="start material-icons">alarm_on<p>ON</p></button>
+                <button class="pause material-icons">alarm_off<p>OFF</p></button>
                 <button class="delete material-icons">delete</button>
               </section>
             </section>
           </template>
           <section class="items"></section>
           <section class="controls">
-            <button class="add material-icons">add_alarm</button>
+            <button class="add material-icons">add_alarm<p>ADD</p></button>
           </section>
         </x-alarm>
       </section>
@@ -50,9 +50,9 @@
         <x-stopwatch>
           <time datetime="PT0S">00:00:00.00</time>
           <section class="controls">
-            <button class="start material-icons">timer</button>
-            <button class="pause material-icons">timer_off</button>
-            <button class="restart material-icons">restart_alt</button>
+            <button class="start material-icons">timer<p>START</p></button>
+            <button class="pause material-icons">timer_off<p>STOP</p></button>
+            <button class="restart material-icons">restart_alt<p>RESTART</p></button>
           </section>
         </x-stopwatch>
       </section>
@@ -66,24 +66,32 @@
             <input type="time" min="00:00" max="23:59" step="1" value="00:01" />
           </section>
           <section class="controls">
-            <button class="start material-icons">timer</button>
-            <button class="pause material-icons">timer_off</button>
-            <button class="restart material-icons">restart_alt</button>
-            <button class="loop material-icons">loop </button>
-            <button class="no-loop material-icons">sync_disabled</button>
+            <button class="start material-icons">timer<p>ON</p></button>
+            <button class="pause material-icons">timer_off<p>OFF</p></button>
+            <button class="restart material-icons">restart_alt <p>RESET</p></button>
+            <button class="loop material-icons">loop<p>LOOP</p></button>
+            <button class="no-loop material-icons">sync_disabled<p>DISS</p></button>
           </section>
         </x-timer>
       </section>
     </main>
-    <script type="module" src="./src/app.js"></script>
 
-    <audio id="musicplayer" autoplay>
-      <source src="./media/alarm.mp3" />
+    <audio id="musicplayer">
+      <source src="./media/alarm.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
     </audio>
 
     <script>
-      const musicplayer = document.getElementById('musicplayer');
-      musicplayer.volume = 0.9;
+
+      notification.requestPermission().then((result) => { 
+        console.log(result);
+      });
+
+      document.querySelector("x-alarm").addEventListener("ring", () => {
+        const notification = new Notification("Alarm", {body: "Wake up!"});
+      });
     </script>
-  </body>
+
+<script type="module" src="./src/app.js"></script>
+</body>
 </html>
